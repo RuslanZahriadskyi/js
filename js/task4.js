@@ -1,9 +1,13 @@
 function formatString(string, maxLength = 40) {
-  if (string.length < maxLength) {
-    return string;
-  } else if (string.length > maxLength) {
-    return string.slice(0, maxLength) + "...";
-  }
+  const isMaxLength = string.length < maxLength;
+
+  return isMaxLength ? string : string.slice(0, maxLength) + "...";
+
+  // if (string.length < maxLength) {
+  //   return string;
+  // }
+
+  // return string.slice(0, maxLength) + "...";
 }
 
 console.log(formatString("Curabitur ligula sapien, tincidunt non."));
