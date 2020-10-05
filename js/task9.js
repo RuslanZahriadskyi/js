@@ -50,11 +50,11 @@ function addLogin(allLogins, login) {
   let message;
   // Write code under this line
   for (let i = 0; i < allLogins.length; i++) {
-    if (isLoginValid(login) === false) {
+    if (!isLoginValid(login)) {
       return (message = ERROR);
     }
 
-    if (isLoginUnique(allLogins, login) === false) {
+    if (!isLoginUnique(allLogins, login)) {
       return (message = REFUSAL);
     }
 
@@ -67,8 +67,6 @@ const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
 
 console.log(addLogin(logins, "Ajax"));
 // 'Логин успешно добавлен!'
-
-console.log(addLogin);
 
 console.log(addLogin(logins, "robotGoogles"));
 // 'Такой логин уже используется!'
