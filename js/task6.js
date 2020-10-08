@@ -8,7 +8,16 @@
 
 function calculateTotalPrice(array, prop) {
   "use strict";
-  // Write code under this line
+  // Write code under this lineмо
+
+  let total = 0;
+
+  for (const product of array) {
+    if (product.name === prop) {
+      total += product.price * product.quantity;
+    }
+  }
+  return total;
 }
 
 // Объекты и ожидаемый результат
@@ -22,10 +31,10 @@ const products = [
   { name: "Захват", price: 1200, quantity: 2 },
 ];
 
-//console.log(calculateTotalPrice(products, 'Радар'));
+console.log(calculateTotalPrice(products, "Радар"));
 // 9080
 
-//console.log(calculateTotalPrice(products, 'Сканер'));
+console.log(calculateTotalPrice(products, "Сканер"));
 // 10200
 
 //console.log(calculateTotalPrice(products, 'Захват'));
