@@ -1,64 +1,62 @@
 class Car {
-    static getSpecs(car) {
-        
-        const entries = Object.entries(car);
-        let message = [];
-        for (let i = 0; i < entries.length; i++) {
-      
-            let value = entries[i][1];
-            let key = entries[i][0];
-  
-            message.push(`${key}: ${value}`)
-        }   
-        return message.join(', ');
+  static getSpecs(car) {
+    const entries = Object.entries(car);
+    let message = [];
+    for (let i = 0; i < entries.length; i++) {
+      let value = entries[i][1];
+      let key = entries[i][0];
+
+      message.push(`${key}: ${value}`);
     }
-    constructor({ maxSpeed, price }) {
-        this.maxSpeed = maxSpeed
-        this.speed = 0
-        this.isOn = false
-        this.distance = 0
-        this.price = price 
+    return message.join(', ');
   }
-    get priceCar() {
-      return this._price
+  constructor({ maxSpeed, price }) {
+    this.maxSpeed = maxSpeed;
+    this.speed = 0;
+    this.isOn = false;
+    this.distance = 0;
+    this.price = price;
   }
-    set priceCar(value) {
-      this._price = value
+  get priceCar() {
+    return this._price;
   }
-    turnOn() {  
-        this.isOn = !this.isOn
-      return !this.isOn  
+  set priceCar(value) {
+    this._price = value;
   }
-    turnOff() {
-      this.isOn = !this.isOn
-      this.speed = 0
-      return !this.isOn && this.speed
+  turnOn() {
+    this.isOn = !this.isOn;
+    return !this.isOn;
   }
-    accelerate(value) {
-        if (value <= this.maxSpeed) {
-            this.speed += value;
-        }
-        if (value > this.maxSpeed) {
-            this.speed = this.maxSpeed
-        }
-        return value;
+  turnOff() {
+    this.isOn = !this.isOn;
+    this.speed = 0;
+    return !this.isOn && this.speed;
   }
-    decelerate(value) {
-        this.speed = this.speed - value < 0 ? 0 : this.speed - value;
-        // if (this.speed - value > 0) {
-        //   this.speed -= value
-        // }
-        // if (this.speed - value < 0) {
-        //     this.speed = 0
-        // }
-        return this.speed
+  accelerate(value) {
+    if (value <= this.maxSpeed) {
+      this.speed += value;
+    }
+    if (value > this.maxSpeed) {
+      this.speed = this.maxSpeed;
+    }
+    return value;
   }
-    drive(hours) {
-        if (this.isOn) {
-            this.distance += hours * this.speed
-        }
-        
-        return this.distance
+  decelerate(value) {
+    this.speed = this.speed - value < 0 ? 0 : this.speed - value;
+    // if (this.speed - value > 0) {
+    //   this.speed -= value
+    // }
+    // if (this.speed - value < 0) {
+    //     this.speed = 0
+    // }
+    return this.speed;
+  }
+  drive(hours) {
+    if (this.isOn) {
+      this.distance += hours * this.speed;
+    }
+
+    return this.distance;
   }
 }
 
