@@ -85,6 +85,15 @@ const users = [
   },
 ];
 
+// const getSortedUniqueSkills = array =>
+//   array
+//     .reduce((newArray, { skills }) => {
+//       const newSkill = skills.filter(el => !newArray.includes(el));
+//       console.log(newSkill);
+//       return [...newArray, ...newSkill];
+//     }, [])
+//     .sort();
+
 const getSortedUniqueSkills = array =>
   array
     .reduce(function (allUsersSkills, { skills }) {
@@ -92,8 +101,7 @@ const getSortedUniqueSkills = array =>
     }, [])
     .sort()
     .filter(function (skill, index, allUsersSkills) {
-      debugger;
-      return allUsersSkills.includes(skill);
+      return allUsersSkills[index + 1] !== skill;
     });
 
 console.log(getSortedUniqueSkills(users));
