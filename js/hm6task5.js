@@ -85,9 +85,14 @@ const users = [
   },
 ];
 
-const getUserWithEmail = (array, mail) => array;
+const getUserWithEmail = (array, mail) =>
+  array.find(function ({ email }) {
+    return mail === email;
+  });
 
-// console.log(getUserWithEmail(users, 'rossvazquez@xinware.com'));
+console.log(getUserWithEmail(users, 'rossvazquez@xinware.com'));
+
+console.log(getUserWithEmail(users, 'blackburndotson@furnigeer.com'));
 
 // Получи объект пользователя (не массив) по уникальному значению свойства email.
 
