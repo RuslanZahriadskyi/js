@@ -32,23 +32,16 @@
 // [1,1,7,7,3] # should return [2,14,3]
 // [-5,-5,7,7,12,0] # should return [-10,14,12,0]
 
-"use strict";
+'use strict';
 
 function findSameNumbers(array) {
   const newNummbers = [];
-
-  let total = 0;
-
-  console.log(array.includes(4));
-
-  for (const number of array) {
-    if (array.includes(number)) {
-      total += number;
-      newNummbers.push(total);
-    }
-  }
 
   return newNummbers;
 }
 
 console.log(findSameNumbers([1, 4, 4, 4, 0, 4, 3, 3, 1]));
+
+console.log(findSameNumbers([1, 1, 7, 7, 3]));
+
+console.log(findSameNumbers([-5, -5, 7, 7, 12, 0]));
