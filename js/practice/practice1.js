@@ -1,47 +1,34 @@
-// Вам предоставляется список / массив, который содержит только целые числа(положительные и отрицательные).
+// Who is the killer
 
-// Ваша задача - суммировать только одинаковые и последовательные числа.В результате должен получиться один список.
+/*
+*Некоторые люди были убиты!
+Вам удалось сузить круг подозреваемых до нескольких. К счастью, вы знаете каждого, кого подозреваемые видели в день убийства.
 
-// Дополнительный кредит, если вы решите его одной строкой. Вы можете предположить, что никогда не бывает пустого списка / массива, и всегда будет целое число.
+Задача.
+Дан словарь со всеми именами подозреваемых и всех, кого они видели в тот день, который может выглядеть так:
 
-// То же значение: 1 == 1
+{'James': ['Jacob', 'Bill', 'Lucas'],
+ 'Johnny': ['David', 'Kyle', 'Lucas'],
+    'Peter': ['Lucy', 'Kyle']
+}
+ 
+а также список имен погибших:
 
-// 1! = -1
+['Lucas', 'Bill']
 
-// #Примеры:
+вернуть имя одного убийцы, в нашем случае, 'James'потому что он единственный человек, который видел оба 'Lucas'и'Bill'
+*/
 
-// You are given a list / array which contains only integers(positive and negative).
-
-// Your job is to sum only the numbers that are the same and consecutive.The result should be one list.
-
-// Extra credit if you solve it in one line. You can assume there is never an empty list/array and there will always be an integer.
-
-// Same meaning: 1 == 1
-
-// 1 != -1
-
-// #Examples:
-
-// [1,4,4,4,0,4,3,3,1] # should return [1,12,0,4,6,1]
-
-// """So as you can see sum of consecutives 1 is 1
-// sum of 3 consecutives 4 is 12
-// sum of 0... and sum of 2
-// consecutives 3 is 6 ..."""
-
-// [1,1,7,7,3] # should return [2,14,3]
-// [-5,-5,7,7,12,0] # should return [-10,14,12,0]
-
-'use strict';
-
-function findSameNumbers(array) {
-  const newNummbers = [];
-
-  return newNummbers;
+function killer(suspectInfo, dead) {
+  return Object.keys(suspectInfo).find(possibleKiller =>
+    dead.every(killed => suspectInfo[possibleKiller].includes(killed)),
+  );
 }
 
-console.log(findSameNumbers([1, 4, 4, 4, 0, 4, 3, 3, 1]));
+const suspects = {
+  James: ['Jacob', 'Bill', 'Lucas'],
+  Johnny: ['David', 'Kyle', 'Lucas'],
+  Peter: ['Lucy', 'Kyle'],
+};
 
-console.log(findSameNumbers([1, 1, 7, 7, 3]));
-
-console.log(findSameNumbers([-5, -5, 7, 7, 12, 0]));
+console.log(killer(suspects, ['Lucas', 'Bill']));

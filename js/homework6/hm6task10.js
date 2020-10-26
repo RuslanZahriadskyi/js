@@ -96,12 +96,10 @@ const users = [
 
 const getSortedUniqueSkills = array =>
   array
-    .reduce(function (allUsersSkills, { skills }) {
-      return [...allUsersSkills, ...skills];
-    }, [])
+    .reduce((allUsersSkills, { skills }) => [...allUsersSkills, ...skills], [])
     .sort()
-    .filter(function (skill, index, allUsersSkills) {
-      return allUsersSkills[index + 1] !== skill;
-    });
+    .filter(
+      (skill, index, allUsersSkills) => allUsersSkills[index + 1] !== skill,
+    );
 
 console.log(getSortedUniqueSkills(users));
